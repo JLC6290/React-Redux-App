@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { Loader } from 'react-loader-spinner';
+import Loader from 'react-loader-spinner';
 import { fetchPokemon } from '../store/actions/pokeActions';
 
 const PokeCard = props => {
@@ -19,7 +19,8 @@ const PokeCard = props => {
                 height={100}
                 width={100}
                 />)}
-            {props.name}
+            {props.isFetching && <h3>{props.name}</h3>}
+            {console.log(props)}
         </div>
     )
 }

@@ -1,6 +1,5 @@
 const initialState = {
-    name: "",
-    image: "",
+    pokemon: "",
     isFetching: false,
     error: ""
 };
@@ -13,6 +12,19 @@ export const pokeReducer = (state = initialState, action) => {
                 ...state,
                 isFetching: true,
             };
+        case "FETCH_QUOTE_SUCCESS":
+            return {
+                ...state,
+                isFetching: false,
+                pokemon: action.payload,
+                error: ''
+            }
+        case "FETCH_QUOTE_ERROR":
+            return {
+                ...state,
+                isFetching: false,
+                error: action.payload
+            }
             return state;
     }
 };
